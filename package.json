@@ -1,0 +1,21 @@
+{
+  "name": "wownail",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "inferno": "^5.0.2",
+    "inferno-clone-vnode": "^5.0.2",
+    "inferno-compat": "^5.0.2",
+    "inferno-create-class": "^5.0.2",
+    "inferno-create-element": "^5.0.2",
+    "inferno-scripts": "6.3.0",
+    "react-flexbox-grid": "^2.0.0",
+    "styled-components": "^3.2.5"
+  },
+  "scripts": {
+    "start": "inferno-scripts start",
+    "build": "inferno-scripts build",
+    "test": "inferno-scripts test --env=jsdom",
+    "eject": "inferno-scripts eject"
+  }
+}
