@@ -2,7 +2,11 @@ import styled from 'styled-components'
 import logo from 'resources/logo.png'
 
 const HeaderStyled = styled.div`
-  padding: 32px;
+  padding: 24px 16px 16px 16px;
+
+  @media (min-width: 575px) {
+    padding: 32px;
+  }
 `
 
 const Logo = styled.img`

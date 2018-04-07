@@ -1,5 +1,9 @@
+import { Component } from 'inferno'
 import styled from 'styled-components'
-import { XsExcept, XsOnly } from './responsive'
+import { Button } from './Button'
+import { XsExcept } from './responsive'
+import { AnswerSelect } from './AnswerSelect'
+import { questions } from './questions'
 
 const QuizStyled = styled.div`
   display: flex;
@@ -16,7 +20,10 @@ const QuestionCardWrap = styled.div`
 `
 
 const QuestionCard = styled.div`
+  max-width: 575px;
+  margin: 0 auto;
   padding: 12px 16px;
+  box-sizing: border-box;
   border-radius: 3px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.14);
   background-image: linear-gradient(
@@ -24,115 +31,82 @@ const QuestionCard = styled.div`
     rgba(105, 143, 153, 1) 0%,
     rgba(112, 175, 206, 1) 100%
   );
+
+  @media (min-width: 575px) {
+    padding: 24px 24px 48px 24px;
+  }
 `
 
 const PageIndicator = styled.div`
   font-size: 16px;
   font-weight: 600;
   color: rgba(91, 143, 169, 1);
+
+  @media (min-width: 575px) {
+    font-size: 28px;
+    font-weight: 600;
+  }
 `
 
 const QuestionText = styled.h1`
   font-size: 18px;
-  margin-bottom: 48px;
+  margin: 32px 0;
   font-weight: 600;
   color: rgba(255, 255, 255, 1);
   text-align: center;
+
+  @media (min-width: 575px) {
+    font-size: 26px;
+    font-weight: 600;
+  }
 `
 
-const Button = styled.button`
-  display: block;
-  margin: 0 auto;
-  padding: 10px 24px;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  background-color: rgba(245, 245, 245, 1);
-  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.13);
-  transition: box-shadow .3s ease;
-
-  &:hover {
-      box-shadow: none;
+export class Quiz extends Component {
+  state = {
+    page: 0,
+    answers: []
   }
 
-  ${({ primary }) =>
-    primary &&
-    `
-  background-image: linear-gradient(-57deg, rgba(105, 143, 153, 1) 0%, rgba(112, 175, 206, 1) 100%);
-  color: #fff;
-  `};
-`
+  handleAnswer = (score) => {
+    const { answers, page } = this.state
+    console.log(score)
 
-const Answers = styled.div`
-  position: relative;
-  top: -16px;
-  z-index: 0;
-  padding-top: 24px;
-  background: #fff;
-`
-
-const AnswerSelect = styled.div`
-  flex-grow: 1;
-  padding-bottom: 24px;
-  background: #fff;
-`
-
-const Answer = styled.button`
-  display: block;
-  width: 100%;
-  padding: 12px 24px;
-  border: none;
-  outline: none;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  text-align: left;
-  color: #444;
-  background: transparent;
-  cursor: pointer;
-
-  &:hover {
-    background-color: rgba(245, 245, 245, 1);
+    this.setState(
+      {
+        answers: [...answers.slice(0, page), score, ...answers.slice(page + 1)]
+      },
+      () => console.log(this.state)
+    )
   }
 
-  &:focus {
-    background-color: rgba(245, 245, 245, 1);
+  handleNext = () => {
+    this.setState({
+      page: this.state.page + 1
+    })
   }
 
-  ${({ selected }) =>
-    selected &&
-    `
-  font-weight: 600;
-  background-color: rgba(245, 245, 245, 1);
-  `};
-`
+  render() {
+    const { page } = this.state
 
-export const Quiz = () => (
-  <QuizStyled>
-    <QuestionCardWrap>
-      <QuestionCard>
-        <PageIndicator>1/11</PageIndicator>
-        <QuestionText>
-          1. Шопинг. Если выбирать из нижеперечисленного, от чего вам было бы
-          сложнее отказаться:
-        </QuestionText>
-        <XsExcept>
-          <Button>Дальше</Button>
-        </XsExcept>
-      </QuestionCard>
-    </QuestionCardWrap>
-    <AnswerSelect>
-      <Answers>
-        <Answer>От красивого нижнего белья! Настоящая женщина должна быть безупречна под одеждой</Answer>
-        <Answer>От новой роскошной сумки правильной формы. Это лучшее вложение денег</Answer>
-        <Answer selected>От пары новых туфель, которые может быть вам и не нужны, но так хороши</Answer>
-        <Answer>От красивого платья, подчеркивающего фигуру</Answer>
-      </Answers>
-      <XsOnly>
-        <Button primary>Дальше</Button>
-      </XsOnly>
-    </AnswerSelect>
-  </QuizStyled>
-)
+    return (
+      <QuizStyled>
+        <QuestionCardWrap>
+          <QuestionCard>
+            <PageIndicator>{page + 1}/{questions.length}</PageIndicator>
+            <QuestionText>
+              {questions[page].text}
+            </QuestionText>
+            <XsExcept>
+              <Button onClick={this.handleNext}>Дальше</Button>
+            </XsExcept>
+          </QuestionCard>
+        </QuestionCardWrap>
+        <AnswerSelect
+          answers={questions[page].answers}
+          onAnswer={this.handleAnswer}
+          onNext={this.handleNext}
+        />
+      </QuizStyled>
+    )
+  }
+}

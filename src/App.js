@@ -1,4 +1,3 @@
-import { version, Component } from 'inferno'
 import { RootContainer } from './RootContainer'
 import { Header } from './Header'
 import { Quiz } from './Quiz'
