@@ -8,8 +8,4 @@ export const RootContainer = styled.div`
   min-height: 100%;
   background: url(${background});
   background-size: cover;
-
-  @media (min-width: 575px) {
-    padding-bottom: 48px;
-  }
 `

@@ -82,8 +82,15 @@ export class Quiz extends Component {
   }
 
   handleNext = () => {
+    const { page, answers } = this.state
+    const { onResult } = this.props
+
+    if (questions.length === page + 1) {
+      onResult(answers)
+    }
+
     this.setState({
-      page: this.state.page + 1,
+      page: page + 1,
       isSelected: false
     })
   }

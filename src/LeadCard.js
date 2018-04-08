@@ -93,7 +93,7 @@ export class LeadCard extends Component {
             *Нажимая на кнопку ниже, Вы даете свое согласие на обработку
             персональных данных
           </PrivacyNotice>
-          <Button danger>Результат</Button>
+          <Button primary>Результат</Button>
           <Cover src={dama} />
         </LeadCardStyled>
       </LeadCardWrap>

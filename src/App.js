@@ -12,12 +12,20 @@ const stages = {
   START: 0,
   QUIZ: 1,
   LEAD: 2,
-  RESULT: 3,
+  RESULT: 3
 }
 
 export class App extends Component {
   state = {
-    stage: stages.START,
+    stage: stages.START
+  }
+
+  handleNext = () => {
+    this.setState(prevState => ({ stage: prevState.stage + 1 }))
+  }
+
+  handleQuizResult = (result) => {
+    this.setState(prevState => ({ stage: prevState.stage + 1 }))
   }
 
   render() {
@@ -26,7 +34,25 @@ export class App extends Component {
     return (
       <RootContainer>
         <Header />
-        {quizEnded && (
+
+        {stage === stages.START && (
+          <CallToActionScreen
+            action={
+              <Button primary onClick={this.handleNext}>
+                Начать!
+              </Button>
+            }
+            cover={miranda}
+            title="Кто ты из сериала Секс в Большом городе?"
+            text={`Пройди тест и узнай, на кого из сериал Секс в Большом Городе ты похожа больше всего.`}
+          />
+        )}
+
+        {stage === stages.QUIZ && <Quiz onResult={this.handleQuizResult} />}
+
+        {stage === stages.LEAD && <LeadCard />}
+
+        {stage === stages.RESULT && (
           <CallToActionScreen
             action={
               <Button primary icon={<InstaIcon />}>
@@ -39,7 +65,6 @@ export class App extends Component {
           сильно заботит, какая прическа сейчас в моде.`}
           />
         )}
-        {!quizEnded && (quizStarted ? <Quiz /> : <LeadCard />)}
       </RootContainer>
     )
   }
