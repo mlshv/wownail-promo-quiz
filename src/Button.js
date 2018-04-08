@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-  display: block;
-  margin: 0 auto;
   padding: 10px 24px;
   font-weight: 600;
   font-family: inherit;
@@ -28,4 +26,12 @@ export const Button = styled.button`
     padding: 12px 32px;
     font-size: 18px;
   }
+
+  ${({ danger }) =>
+    danger &&
+    `
+  color: #fff;
+  background-color: rgba(225, 18, 136, 1);
+  box-shadow: 0px 8px 20px 0px rgba(225, 18, 136, 0.32);
+  `};
 `

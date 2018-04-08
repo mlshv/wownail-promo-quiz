@@ -1,5 +1,6 @@
 import { Component } from 'inferno'
 import styled from 'styled-components'
+import { Center } from './Center'
 import { Button } from './Button'
 import { XsOnly } from './responsive'
 
@@ -91,9 +92,11 @@ export class AnswerSelect extends Component {
           ))}
         </Answers>
         <XsOnly>
-          <Button primary onClick={this.props.onNext}>
-            Дальше
-          </Button>
+          <Center>
+            <Button primary onClick={this.props.onNext}>
+              Дальше
+            </Button>
+          </Center>
         </XsOnly>
       </AnswerSelectStyled>
     )

@@ -1,6 +1,7 @@
 import { Component } from 'inferno'
 import styled from 'styled-components'
 import { Button } from './Button'
+import { Center } from './Center'
 import { XsExcept } from './responsive'
 import { AnswerSelect } from './AnswerSelect'
 import { questions } from './questions'
@@ -67,7 +68,7 @@ export class Quiz extends Component {
     answers: []
   }
 
-  handleAnswer = (score) => {
+  handleAnswer = score => {
     const { answers, page } = this.state
     console.log(score)
 
@@ -92,12 +93,14 @@ export class Quiz extends Component {
       <QuizStyled>
         <QuestionCardWrap>
           <QuestionCard>
-            <PageIndicator>{page + 1}/{questions.length}</PageIndicator>
-            <QuestionText>
-              {questions[page].text}
-            </QuestionText>
+            <PageIndicator>
+              {page + 1}/{questions.length}
+            </PageIndicator>
+            <QuestionText>{questions[page].text}</QuestionText>
             <XsExcept>
-              <Button onClick={this.handleNext}>Дальше</Button>
+              <Center>
+                <Button onClick={this.handleNext}>Дальше</Button>
+              </Center>
             </XsExcept>
           </QuestionCard>
         </QuestionCardWrap>
