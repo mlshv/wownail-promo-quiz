@@ -3,6 +3,10 @@ import charlotteCover from 'resources/covers/charlotte.jpg'
 import careyCover from 'resources/covers/carey.jpg'
 import samanthaCover from 'resources/covers/carey.jpg'
 
+export const quizName = 'Кто ты из сериала Секс в Большом городе?'
+export const quizDescription =
+  'Пройди тест и узнай, на кого из сериал Секс в Большом Городе ты похожа больше всего.'
+
 export const scores = {
   SAMANTHA: 'Саманта',
   MIRANDA: 'Миранда',
@@ -38,7 +42,7 @@ export const questions = [
       },
       {
         text:
-          'От новой роскошной сумки правильной формы. Это лучшее вложение денег!',
+          'От пары новых туфель, которые может быть вам и не нужны, но так хороши!',
         score: scores.CAREY
       },
       {
@@ -235,7 +239,7 @@ export const questions = [
         score: scores.MIRANDA
       },
       {
-        text: 'Любовь – для слабых и сентиментальны',
+        text: 'Любовь – для слабых и сентиментальных',
         score: scores.SAMANTHA
       }
     ]

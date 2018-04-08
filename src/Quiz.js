@@ -4,7 +4,6 @@ import { Button } from './Button'
 import { Center } from './Center'
 import { XsExcept } from './responsive'
 import { AnswerSelect } from './AnswerSelect'
-import { questions } from './questions'
 
 const BaseContainer = styled.div`
   display: flex;
@@ -87,7 +86,7 @@ export class Quiz extends Component {
 
   handleNext = () => {
     const { page, answers } = this.state
-    const { onResult } = this.props
+    const { onResult, questions } = this.props
 
     if (answers[page]) {
       if (questions.length === page + 1) {
@@ -122,6 +121,7 @@ export class Quiz extends Component {
 
   render() {
     const { page, isSelected } = this.state
+    const { questions } = this.props
 
     return (
       <BaseContainer>

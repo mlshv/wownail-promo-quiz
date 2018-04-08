@@ -4,7 +4,6 @@ import { Center } from './Center'
 import { Button } from './Button'
 import { XsOnly } from './responsive'
 
-
 const AnswerSelectStyled = styled.div`
   flex-grow: 1;
   width: 100%;

@@ -7,7 +7,7 @@ import { LeadCard } from './LeadCard'
 import { CallToActionScreen } from './CallToActionScreen'
 import { Button } from './Button'
 import { InstaIcon } from './icons'
-import { results } from './questions'
+import { questions, results, quizName, quizDescription } from './content'
 
 const stages = {
   START: 0,
@@ -48,12 +48,14 @@ export class App extends Component {
               </Button>
             }
             cover={coverStart}
-            title="Кто ты из сериала Секс в Большом городе?"
-            text={`Пройди тест и узнай, на кого из сериал Секс в Большом Городе ты похожа больше всего.`}
+            title={quizName}
+            text={quizDescription}
           />
         )}
 
-        {stage === stages.QUIZ && <Quiz onResult={this.handleQuizResult} />}
+        {stage === stages.QUIZ && (
+          <Quiz questions={questions} onResult={this.handleQuizResult} />
+        )}
 
         {stage === stages.LEAD && <LeadCard onNext={this.handleNext} />}
 
