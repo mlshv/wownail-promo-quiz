@@ -1,30 +1,9 @@
 import { Component } from 'inferno'
 import styled from 'styled-components'
+import { SubCardWrap, SubCard } from 'layout'
 import { Center } from './Center'
 import { Button } from './Button'
 import { XsOnly } from './responsive'
-
-const AnswerSelectStyled = styled.div`
-  flex-grow: 1;
-  width: 100%;
-  max-width: 550px;
-  margin: 0 auto;
-  padding-bottom: 24px;
-  background: #fff;
-
-  @media (min-width: 575px) {
-    flex-grow: unset;
-    padding-bottom: 0;
-  }
-`
-
-const Answers = styled.div`
-  position: relative;
-  top: -16px;
-  z-index: 0;
-  padding-top: 24px;
-  background: #fff;
-`
 
 const Answer = styled.button`
   display: block;
@@ -85,8 +64,8 @@ export class AnswerSelect extends Component {
     const { selected } = this.state
 
     return (
-      <AnswerSelectStyled>
-        <Answers>
+      <SubCardWrap>
+        <SubCard>
           {answers.map((answer, index) => (
             <Answer
               selected={index == selected}
@@ -96,7 +75,7 @@ export class AnswerSelect extends Component {
               {answer.text}
             </Answer>
           ))}
-        </Answers>
+        </SubCard>
         <XsOnly>
           <Center>
             <Button inversed onClick={this.props.onNext}>
@@ -104,7 +83,7 @@ export class AnswerSelect extends Component {
             </Button>
           </Center>
         </XsOnly>
-      </AnswerSelectStyled>
+      </SubCardWrap>
     )
   }
 }

@@ -1,15 +1,8 @@
 import { Component } from 'inferno'
 import styled from 'styled-components'
+import { CardWrap } from 'layout'
 import { Button } from './Button'
 import dama from 'resources/dama.png'
-
-const LeadCardWrap = styled.div`
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  padding: 6px;
-  box-sizing: border-box;
-`
 
 const LeadCardStyled = styled.div`
   position: relative;
@@ -59,7 +52,7 @@ const Error = styled.p`
   margin: 6px 0;
   margin-bottom: 24px;
   font-size: 12px;
-  color: rgba(225,18,136,1);
+  color: rgba(225, 18, 136, 1);
 
   @media (min-width: 575px) {
     font-size: 14px;
@@ -117,7 +110,7 @@ export class LeadCard extends Component {
     const { email, validationError } = this.state
 
     return (
-      <LeadCardWrap>
+      <CardWrap>
         <LeadCardStyled>
           <Title>Последний шаг</Title>
           <Label>Email</Label>
@@ -132,7 +125,7 @@ export class LeadCard extends Component {
           </Button>
           <Cover src={dama} />
         </LeadCardStyled>
-      </LeadCardWrap>
+      </CardWrap>
     )
   }
 }

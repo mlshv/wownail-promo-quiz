@@ -1,27 +1,11 @@
 import { Component } from 'inferno'
+import { Base, CardWrap } from 'layout'
 import styled from 'styled-components'
 import { Button } from './Button'
 import { Center } from './Center'
 import { XsExcept } from './responsive'
 import { AnswerSelect } from './AnswerSelect'
 
-const BaseContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-
-  @media (min-width: 575px) {
-    margin-bottom: 48px;
-  }
-`
-
-const CardWrap = styled.div`
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  padding: 6px;
-  box-sizing: border-box;
-`
 
 const Card = styled.div`
   max-width: 575px;
@@ -30,6 +14,7 @@ const Card = styled.div`
   box-sizing: border-box;
   border-radius: 3px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.14);
+
   background-image: linear-gradient(
     -57deg,
     rgba(105, 143, 153, 1) 0%,
@@ -124,7 +109,7 @@ export class Quiz extends Component {
     const { questions } = this.props
 
     return (
-      <BaseContainer>
+      <Base>
         <CardWrap>
           <Card>
             <PageIndicator>
@@ -144,7 +129,7 @@ export class Quiz extends Component {
           onNext={this.handleNext}
           isSelected={isSelected}
         />
-      </BaseContainer>
+      </Base>
     )
   }
 }

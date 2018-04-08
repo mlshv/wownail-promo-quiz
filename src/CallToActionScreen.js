@@ -1,19 +1,6 @@
 import { Component } from 'inferno'
 import styled from 'styled-components'
-
-const BaseContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-`
-
-const CardWrap = styled.div`
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  padding: 6px;
-  box-sizing: border-box;
-`
+import { Base, CardWrap, SubCardWrap, SubCard } from 'layout'
 
 const Card = styled.div`
   max-width: 575px;
@@ -54,28 +41,6 @@ const ActionWrap = styled.div`
   text-align: center;
 `
 
-const SubCardWrap = styled.div`
-  flex-grow: 1;
-  width: 100%;
-  max-width: 550px;
-  margin: 0 auto;
-  padding-bottom: 24px;
-  background: #fff;
-
-  @media (min-width: 575px) {
-    flex-grow: unset;
-    padding-bottom: 0;
-  }
-`
-
-const SubCard = styled.div`
-  position: relative;
-  top: -16px;
-  z-index: 0;
-  padding-top: 24px;
-  background: #fff;
-`
-
 const Text = styled.p`
   padding: 16px 12px;
   font-size: 18px;
@@ -85,7 +50,7 @@ const Text = styled.p`
 `
 
 export const CallToActionScreen = ({ title, cover, action, text }) => (
-  <BaseContainer>
+  <Base>
     <CardWrap>
       <Card background={cover}>
         <Title>{title}</Title>
@@ -97,5 +62,5 @@ export const CallToActionScreen = ({ title, cover, action, text }) => (
         <Text>{text}</Text>
       </SubCard>
     </SubCardWrap>
-  </BaseContainer>
+  </Base>
 )
