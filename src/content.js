@@ -1,7 +1,7 @@
 import mirandaCover from 'resources/covers/miranda.jpg'
 import charlotteCover from 'resources/covers/charlotte.jpg'
-import careyCover from 'resources/covers/carey.jpg'
-import samanthaCover from 'resources/covers/carey.jpg'
+import carrieCover from 'resources/covers/carrie.jpg'
+import samanthaCover from 'resources/covers/carrie.jpg'
 
 export const quizName = 'Кто ты из сериала Секс в Большом городе?'
 export const quizDescription =
@@ -10,7 +10,7 @@ export const quizDescription =
 export const scores = {
   SAMANTHA: 'Саманта',
   MIRANDA: 'Миранда',
-  CAREY: 'Кэри',
+  CARRIE: 'Кэрри',
   CHARLOTTE: 'Шарлотта'
 }
 
@@ -21,7 +21,7 @@ export const results = {
       'Ты целеустремленная. Не думаешь о нарядах и косметике, и тебя несильно заботит, какая прическа сейчас в моде.',
     cover: mirandaCover
   },
-  [scores.CAREY]: { text: '', cover: careyCover },
+  [scores.CARRIE]: { text: '', cover: carrieCover },
   [scores.CHARLOTTE]: { text: '', cover: charlotteCover }
 }
 
@@ -43,7 +43,7 @@ export const questions = [
       {
         text:
           'От пары новых туфель, которые может быть вам и не нужны, но так хороши!',
-        score: scores.CAREY
+        score: scores.CARRIE
       },
       {
         text: 'От красивого платья, подчеркивающего фигуру.',
@@ -65,7 +65,7 @@ export const questions = [
       },
       {
         text: 'Ой, не знаю! И хочется, и колется.',
-        score: scores.CAREY
+        score: scores.CARRIE
       },
       {
         text:
@@ -91,7 +91,7 @@ export const questions = [
       },
       {
         text: 'Черный. Это классика!',
-        score: scores.CAREY
+        score: scores.CARRIE
       }
     ]
   },
@@ -112,7 +112,7 @@ export const questions = [
       },
       {
         text: '"Завтрак у Тиффани!"',
-        score: scores.CAREY
+        score: scores.CARRIE
       }
     ]
   },
@@ -121,7 +121,7 @@ export const questions = [
     answers: [
       {
         text: 'Йога',
-        score: scores.CAREY
+        score: scores.CARRIE
       },
       {
         text: 'Аэробика',
@@ -146,7 +146,7 @@ export const questions = [
       },
       {
         text: 'Ужин при свечах с любимым',
-        score: scores.CAREY
+        score: scores.CARRIE
       },
       {
         text: 'Вечер в кругу семьи и гостей',
@@ -167,7 +167,7 @@ export const questions = [
       },
       {
         text: 'Я гурман, но готовить не умею',
-        score: scores.CAREY
+        score: scores.CARRIE
       },
       {
         text:
@@ -189,7 +189,7 @@ export const questions = [
       },
       {
         text: 'Авангард. Миксую, смешиваю, не боюсь экспериментировать',
-        score: scores.CAREY
+        score: scores.CARRIE
       },
       {
         text: 'Классика. Беспроигрышный вариант',
@@ -211,7 +211,7 @@ export const questions = [
       },
       {
         text: 'Иногда бываю слишком инфантильно',
-        score: scores.CAREY
+        score: scores.CARRIE
       },
       {
         text: 'Могу быть настоящей занудой',
@@ -232,7 +232,7 @@ export const questions = [
       },
       {
         text: 'Поступок, достойный настоящего мужчины',
-        score: scores.CAREY
+        score: scores.CARRIE
       },
       {
         text: 'Чувство одиночества',
@@ -253,7 +253,7 @@ export const questions = [
       },
       {
         text: 'Джордж Клуни',
-        score: scores.CAREY
+        score: scores.CARRIE
       },
       {
         text: 'Хью Лори',
