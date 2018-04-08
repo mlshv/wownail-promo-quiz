@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "inferno": "^5.0.2",
     "inferno-clone-vnode": "^5.0.2",
     "inferno-compat": "^5.0.2",

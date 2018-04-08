@@ -8,6 +8,9 @@ const HeaderStyled = styled.div`
     padding: 32px;
   }
 `
+const Link = styled.a`
+  display: block;
+`
 
 const Logo = styled.img`
   display: block;
@@ -17,6 +20,8 @@ const Logo = styled.img`
 
 export const Header = () => (
   <HeaderStyled>
-    <Logo src={logo} />
+    <Link href="http://wownail.com/">
+      <Logo src={logo} />
+    </Link>
   </HeaderStyled>
 )

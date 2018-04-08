@@ -8,6 +8,7 @@ export const ButtonStyled = styled.button`
   font-family: inherit;
   cursor: pointer;
   outline: none;
+  text-decoration: none;
   border: none;
   border-radius: 4px;
   background-color: rgba(245, 245, 245, 1);
@@ -48,8 +49,15 @@ export const ButtonStyled = styled.button`
   `};
 `
 
-export const Button = ({ children, icon, ...rest }) => (
-  <ButtonStyled hasIcon={!!icon} {...rest}>
-    {icon && icon} {children}
-  </ButtonStyled>
-)
+const Link = ButtonStyled.withComponent('a')
+
+export const Button = ({ children, icon, link, ...rest }) =>
+  link ? (
+    <Link hasIcon={!!icon} {...rest}>
+      {icon && icon} {children}
+    </Link>
+  ) : (
+    <ButtonStyled hasIcon={!!icon} {...rest}>
+      {icon && icon} {children}
+    </ButtonStyled>
+  )

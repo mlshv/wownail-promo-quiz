@@ -6,7 +6,7 @@ import { LeadCard } from './LeadCard'
 import { CallToActionScreen } from './CallToActionScreen'
 import { Button } from './Button'
 import { InstaIcon } from './icons'
-import miranda from 'resources/miranda.png'
+import { results } from './questions'
 
 const stages = {
   START: 0,
@@ -17,19 +17,23 @@ const stages = {
 
 export class App extends Component {
   state = {
-    stage: stages.START
+    stage: stages.START,
+    quizResult: ''
   }
 
   handleNext = () => {
     this.setState(prevState => ({ stage: prevState.stage + 1 }))
   }
 
-  handleQuizResult = (result) => {
-    this.setState(prevState => ({ stage: prevState.stage + 1 }))
+  handleQuizResult = result => {
+    this.setState(prevState => ({
+      stage: prevState.stage + 1,
+      quizResult: result
+    }))
   }
 
   render() {
-    const { stage } = this.state
+    const { stage, quizResult } = this.state
 
     return (
       <RootContainer>
@@ -42,7 +46,7 @@ export class App extends Component {
                 Начать!
               </Button>
             }
-            cover={miranda}
+            cover={''}
             title="Кто ты из сериала Секс в Большом городе?"
             text={`Пройди тест и узнай, на кого из сериал Секс в Большом Городе ты похожа больше всего.`}
           />
@@ -50,19 +54,24 @@ export class App extends Component {
 
         {stage === stages.QUIZ && <Quiz onResult={this.handleQuizResult} />}
 
-        {stage === stages.LEAD && <LeadCard />}
+        {stage === stages.LEAD && <LeadCard onNext={this.handleNext} />}
 
         {stage === stages.RESULT && (
           <CallToActionScreen
             action={
-              <Button primary icon={<InstaIcon />}>
+              <Button
+                primary
+                icon={<InstaIcon />}
+                link
+                href="https://instagram.com/mlshv_vidit"
+                target="_blank"
+              >
                 Подписаться
               </Button>
             }
-            cover={miranda}
-            title="Ты Миранда!"
-            text={`Ты целеустремленная. Не думаешь о нарядах и косметике, и тебя не
-          сильно заботит, какая прическа сейчас в моде.`}
+            cover={results[quizResult].cover}
+            title={`Ты ${quizResult}!`}
+            text={results[quizResult].text}
           />
         )}
       </RootContainer>

@@ -85,14 +85,35 @@ export class Quiz extends Component {
     const { page, answers } = this.state
     const { onResult } = this.props
 
-    if (questions.length === page + 1) {
-      onResult(answers)
-    }
+    if (answers[page]) {
+      if (questions.length === page + 1) {
+        const counts = answers.reduce(
+          (accumulator, answer) => ({
+            ...accumulator,
+            [answer]: (accumulator[answer] || 0) + 1
+          }),
+          {}
+        )
 
-    this.setState({
-      page: page + 1,
-      isSelected: false
-    })
+        const result = Object.keys(counts).reduce(
+          (currentMax, answer) => {
+            if (counts[answer] > currentMax.count) {
+              return { count: counts[answer], answer }
+            } else {
+              return currentMax
+            }
+          },
+          { count: null }
+        )
+
+        onResult(result.answer)
+      } else {
+        this.setState({
+          page: page + 1,
+          isSelected: false
+        })
+      }
+    }
   }
 
   render() {

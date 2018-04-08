@@ -1,8 +1,21 @@
+import miranda from 'resources/miranda.png'
+
 export const scores = {
   SAMANTHA: 'Саманта',
   MIRANDA: 'Миранда',
   CAREY: 'Кэри',
   CHARLOTTE: 'Шарлотта'
+}
+
+export const results = {
+  [scores.SAMANTHA]: { text: '', cover: '' },
+  [scores.MIRANDA]: {
+    text:
+      'Ты целеустремленная. Не думаешь о нарядах и косметике, и тебя несильно заботит, какая прическа сейчас в моде.',
+    cover: miranda
+  },
+  [scores.CAREY]: { text: '', cover: '' },
+  [scores.CHARLOTTE]: { text: '', cover: '' }
 }
 
 export const questions = [
@@ -36,22 +49,20 @@ export const questions = [
       'Если вы чувствуете, что не можете сопротивляться охватившему вас чувству к мужчине, то скорее всего...',
     answers: [
       {
-        text:
-          'Я поддамся ему - и будь что будет!',
+        text: 'Я поддамся ему - и будь что будет!',
         score: scores.SAMANTHA
       },
       {
-        text:
-          'Постараюсь оттянуть этот приятный момент.',
+        text: 'Постараюсь оттянуть этот приятный момент.',
         score: scores.CHARLOTTE
       },
       {
-        text:
-          'Ой, не знаю! И хочется, и колется.',
+        text: 'Ой, не знаю! И хочется, и колется.',
         score: scores.CAREY
       },
       {
-        text: 'По обстоятельствам. Если все будет идеально, я готова сдаться. Если же что-то пойдет не так и спугнет меня, отбой!',
+        text:
+          'По обстоятельствам. Если все будет идеально, я готова сдаться. Если же что-то пойдет не так и спугнет меня, отбой!',
         score: scores.MIRANDA
       }
     ]
@@ -74,7 +85,7 @@ export const questions = [
       {
         text: 'Черный. Это классика!',
         score: scores.CAREY
-      },
+      }
     ]
   },
   {
@@ -95,7 +106,7 @@ export const questions = [
       {
         text: '"Завтрак у Тиффани!"',
         score: scores.CAREY
-      },
+      }
     ]
   },
   {
@@ -116,7 +127,7 @@ export const questions = [
       {
         text: 'Секс',
         score: scores.SAMANTHA
-      },
+      }
     ]
   },
   {
@@ -137,7 +148,7 @@ export const questions = [
       {
         text: 'Авантюрное свидание с незнакомцем на отдых',
         score: scores.SAMANTHA
-      },
+      }
     ]
   },
   {
@@ -152,13 +163,14 @@ export const questions = [
         score: scores.CAREY
       },
       {
-        text: 'Не делаю культа из еды. Если надо - могу приготовить что-то вкусно',
+        text:
+          'Не делаю культа из еды. Если надо - могу приготовить что-то вкусно',
         score: scores.MIRANDA
       },
       {
         text: 'Ем только в ресторанах. Мне важнее компания, чем еда',
         score: scores.SAMANTHA
-      },
+      }
     ]
   },
   {
@@ -177,9 +189,10 @@ export const questions = [
         score: scores.MIRANDA
       },
       {
-        text: 'Хиппи-шик, индивидуализм, разбавленный спокойными классическими вещами',
+        text:
+          'Хиппи-шик, индивидуализм, разбавленный спокойными классическими вещами',
         score: scores.SAMANTHA
-      },
+      }
     ]
   },
   {
@@ -200,7 +213,7 @@ export const questions = [
       {
         text: 'Если честно, я слишком сильно люблю себя',
         score: scores.SAMANTHA
-      },
+      }
     ]
   },
   {
@@ -221,7 +234,7 @@ export const questions = [
       {
         text: 'Любовь – для слабых и сентиментальны',
         score: scores.SAMANTHA
-      },
+      }
     ]
   },
   {
@@ -242,7 +255,7 @@ export const questions = [
       {
         text: 'Джейсон Стэтэм',
         score: scores.SAMANTHA
-      },
+      }
     ]
-  },
+  }
 ]

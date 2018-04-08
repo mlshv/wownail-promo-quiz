@@ -43,7 +43,6 @@ const Label = styled.label`
 
 const Input = styled.input`
   display: block;
-  margin-bottom: 24px;
   border: none;
   border-bottom: 1px solid rgba(222, 222, 222, 1);
   outline: none;
@@ -53,6 +52,17 @@ const Input = styled.input`
 
   &:focus {
     border-bottom: 1px solid #555;
+  }
+`
+
+const Error = styled.p`
+  margin: 6px 0;
+  margin-bottom: 24px;
+  font-size: 12px;
+  color: rgba(225,18,136,1);
+
+  @media (min-width: 575px) {
+    font-size: 14px;
   }
 `
 
@@ -81,19 +91,45 @@ const Cover = styled.img`
   }
 `
 
+const isEmailValid = email => {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  return re.test(String(email).toLowerCase())
+}
+
 export class LeadCard extends Component {
+  state = {
+    email: '',
+    validationError: ''
+  }
+
+  handleSubmit = () => {
+    if (isEmailValid(this.state.email)) {
+      this.setState({ validationError: '' })
+      this.props.onNext()
+    } else {
+      this.setState({ validationError: 'Введите корректный email' })
+    }
+  }
+
+  handleChange = e => this.setState({ email: e.target.value })
+
   render() {
+    const { email, validationError } = this.state
+
     return (
       <LeadCardWrap>
         <LeadCardStyled>
           <Title>Последний шаг</Title>
           <Label>Email</Label>
-          <Input />
+          <Input onChange={this.handleChange} value={email} />
+          {validationError && <Error>{validationError}</Error>}
           <PrivacyNotice>
             *Нажимая на кнопку ниже, Вы даете свое согласие на обработку
             персональных данных
           </PrivacyNotice>
-          <Button primary>Результат</Button>
+          <Button primary onClick={this.handleSubmit}>
+            Результат
+          </Button>
           <Cover src={dama} />
         </LeadCardStyled>
       </LeadCardWrap>
