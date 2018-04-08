@@ -24,6 +24,7 @@ const Card = styled.div`
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.14);
   background-color: #333;
   background-image: url(${({ background }) => background});
+  background-size: cover;
   background-position: center;
   @media (min-width: 575px) {
     padding: 24px 24px 48px 24px;

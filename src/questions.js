@@ -1,4 +1,7 @@
-import miranda from 'resources/miranda.png'
+import mirandaCover from 'resources/covers/miranda.jpg'
+import charlotteCover from 'resources/covers/charlotte.jpg'
+import careyCover from 'resources/covers/carey.jpg'
+import samanthaCover from 'resources/covers/carey.jpg'
 
 export const scores = {
   SAMANTHA: 'Саманта',
@@ -8,14 +11,14 @@ export const scores = {
 }
 
 export const results = {
-  [scores.SAMANTHA]: { text: '', cover: '' },
+  [scores.SAMANTHA]: { text: '', cover: samanthaCover },
   [scores.MIRANDA]: {
     text:
       'Ты целеустремленная. Не думаешь о нарядах и косметике, и тебя несильно заботит, какая прическа сейчас в моде.',
-    cover: miranda
+    cover: mirandaCover
   },
-  [scores.CAREY]: { text: '', cover: '' },
-  [scores.CHARLOTTE]: { text: '', cover: '' }
+  [scores.CAREY]: { text: '', cover: careyCover },
+  [scores.CHARLOTTE]: { text: '', cover: charlotteCover }
 }
 
 export const questions = [

@@ -1,4 +1,5 @@
 import { Component } from 'inferno'
+import coverStart from 'resources/covers/start.jpg'
 import { RootContainer } from './RootContainer'
 import { Header } from './Header'
 import { Quiz } from './Quiz'
@@ -46,7 +47,7 @@ export class App extends Component {
                 Начать!
               </Button>
             }
-            cover={''}
+            cover={coverStart}
             title="Кто ты из сериала Секс в Большом городе?"
             text={`Пройди тест и узнай, на кого из сериал Секс в Большом Городе ты похожа больше всего.`}
           />

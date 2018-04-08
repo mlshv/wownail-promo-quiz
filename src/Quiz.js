@@ -10,6 +10,10 @@ const BaseContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+
+  @media (min-width: 575px) {
+    margin-bottom: 48px;
+  }
 `
 
 const CardWrap = styled.div`
