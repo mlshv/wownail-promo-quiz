@@ -6,7 +6,7 @@ import { LeadCard } from './LeadCard';
 
 export class App extends Component {
   state = {
-    quizStarted: false,
+    quizStarted: true,
   }
 
   render() {

@@ -6,13 +6,13 @@ import { XsExcept } from './responsive'
 import { AnswerSelect } from './AnswerSelect'
 import { questions } from './questions'
 
-const QuizStyled = styled.div`
+const BaseContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 `
 
-const QuestionCardWrap = styled.div`
+const CardWrap = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
@@ -65,16 +65,17 @@ const QuestionText = styled.h1`
 export class Quiz extends Component {
   state = {
     page: 0,
-    answers: []
+    answers: [],
+    isSelected: false
   }
 
   handleAnswer = score => {
     const { answers, page } = this.state
-    console.log(score)
 
     this.setState(
       {
-        answers: [...answers.slice(0, page), score, ...answers.slice(page + 1)]
+        answers: [...answers.slice(0, page), score, ...answers.slice(page + 1)],
+        isSelected: true
       },
       () => console.log(this.state)
     )
@@ -82,16 +83,17 @@ export class Quiz extends Component {
 
   handleNext = () => {
     this.setState({
-      page: this.state.page + 1
+      page: this.state.page + 1,
+      isSelected: false
     })
   }
 
   render() {
-    const { page } = this.state
+    const { page, isSelected } = this.state
 
     return (
-      <QuizStyled>
-        <QuestionCardWrap>
+      <BaseContainer>
+        <CardWrap>
           <QuestionCard>
             <PageIndicator>
               {page + 1}/{questions.length}
@@ -103,13 +105,14 @@ export class Quiz extends Component {
               </Center>
             </XsExcept>
           </QuestionCard>
-        </QuestionCardWrap>
+        </CardWrap>
         <AnswerSelect
           answers={questions[page].answers}
           onAnswer={this.handleAnswer}
           onNext={this.handleNext}
+          isSelected={isSelected}
         />
-      </QuizStyled>
+      </BaseContainer>
     )
   }
 }
