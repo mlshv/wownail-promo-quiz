@@ -4,6 +4,15 @@ import { Center } from './Center'
 import { Button } from './Button'
 import { XsOnly } from './responsive'
 
+
+const Answers = styled.div`
+  position: relative;
+  top: -16px;
+  z-index: 0;
+  padding-top: 24px;
+  background: #fff;
+`
+
 const AnswerSelectStyled = styled.div`
   flex-grow: 1;
   width: 100%;
@@ -16,14 +25,6 @@ const AnswerSelectStyled = styled.div`
     flex-grow: unset;
     padding-bottom: 0;
   }
-`
-
-const Answers = styled.div`
-  position: relative;
-  top: -16px;
-  z-index: 0;
-  padding-top: 24px;
-  background: #fff;
 `
 
 const Answer = styled.button`

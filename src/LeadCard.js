@@ -15,7 +15,7 @@ const LeadCardStyled = styled.div`
   position: relative;
   max-width: 575px;
   margin: 0 auto;
-  padding: 12px 16px;
+  padding: 24px 16px 116px 16px;
   box-sizing: border-box;
   border-radius: 3px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.14);
@@ -58,18 +58,27 @@ const Input = styled.input`
 
 const PrivacyNotice = styled.p`
   margin-bottom: 48px;
-  width: 232px;
-  font-size: 14px;
+  width: 170px;
+  font-size: 12px;
   font-weight: 500;
   color: rgba(222, 222, 222, 1);
+
+  @media (min-width: 575px) {
+    width: 232px;
+    font-size: 14px;
+  }
 `
 
 const Cover = styled.img`
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 430px;
+  height: 250px;
   border-bottom-right-radius: 4px;
+
+  @media (min-width: 575px) {
+    height: 430px;
+  }
 `
 
 export class LeadCard extends Component {
