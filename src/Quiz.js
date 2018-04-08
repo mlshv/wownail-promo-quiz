@@ -20,7 +20,7 @@ const CardWrap = styled.div`
   box-sizing: border-box;
 `
 
-const QuestionCard = styled.div`
+const Card = styled.div`
   max-width: 575px;
   margin: 0 auto;
   padding: 12px 16px;
@@ -94,7 +94,7 @@ export class Quiz extends Component {
     return (
       <BaseContainer>
         <CardWrap>
-          <QuestionCard>
+          <Card>
             <PageIndicator>
               {page + 1}/{questions.length}
             </PageIndicator>
@@ -104,7 +104,7 @@ export class Quiz extends Component {
                 <Button onClick={this.handleNext}>Дальше</Button>
               </Center>
             </XsExcept>
-          </QuestionCard>
+          </Card>
         </CardWrap>
         <AnswerSelect
           answers={questions[page].answers}

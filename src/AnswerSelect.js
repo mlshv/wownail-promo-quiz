@@ -100,7 +100,7 @@ export class AnswerSelect extends Component {
         </Answers>
         <XsOnly>
           <Center>
-            <Button primary onClick={this.props.onNext}>
+            <Button inversed onClick={this.props.onNext}>
               Дальше
             </Button>
           </Center>
