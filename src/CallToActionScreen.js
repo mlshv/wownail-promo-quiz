@@ -47,6 +47,10 @@ const Text = styled.p`
   font-weight: 500;
   color: rgba(71, 76, 83, 1);
   text-align: center;
+
+  @media (min-width: 575px) {
+    padding: 24px 18px;
+  }
 `
 
 export const CallToActionScreen = ({ title, cover, action, text }) => (
