@@ -66,7 +66,7 @@ export class App extends Component {
                 primary
                 icon={<InstaIcon />}
                 link
-                href="https://instagram.com/mlshv_vidit"
+                href="https://www.instagram.com/wownailcom/"
                 target="_blank"
               >
                 Подписаться
