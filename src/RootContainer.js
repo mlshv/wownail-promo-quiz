@@ -8,4 +8,5 @@ export const RootContainer = styled.div`
   min-height: 100%;
   background: url(${background});
   background-size: cover;
+  background-position: center;
 `

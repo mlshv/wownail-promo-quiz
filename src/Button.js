@@ -12,11 +12,11 @@ export const ButtonStyled = styled.button`
   border: none;
   border-radius: 4px;
   background-color: rgba(245, 245, 245, 1);
-  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.13);
+  box-shadow: none;
   transition: box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: none;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.13);
   }
 
   @media (min-width: 575px) {
@@ -29,7 +29,10 @@ export const ButtonStyled = styled.button`
     `
   color: #fff;
   background-color: rgba(225, 18, 136, 1);
-  box-shadow: 0px 8px 20px 0px rgba(225, 18, 136, 0.32);
+
+  &:hover {
+    box-shadow: 0px 8px 20px 0px rgba(225, 18, 136, 0.32);
+  }
   `};
 
   ${({ hasIcon }) =>
