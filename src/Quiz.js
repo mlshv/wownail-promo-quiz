@@ -42,6 +42,13 @@ const PageIndicator = styled.div`
     font-size: 28px;
     font-weight: 600;
   }
+
+  ${({ light }) =>
+    light &&
+    `
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  `};
 `
 
 const QuestionText = styled.h1`
@@ -124,7 +131,7 @@ export class Quiz extends Component {
       <Base>
         <CardWrap>
           <Card background={questions[page].cover}>
-            <PageIndicator>
+            <PageIndicator light={!!questions[page].cover}>
               {page + 1}/{questions.length}
             </PageIndicator>
             <QuestionText>{questions[page].text}</QuestionText>

@@ -32,7 +32,6 @@ export const formatResult = () => 'Поздравляем!'
 export const questions = [
   {
     text: 'Привет! Расскажи нам, сколько тебе лет?',
-    cover: `${process.env.PUBLIC_URL}/covers/start-sibc.jpg`,
     answers: [
       {
         text: 'От 5 до 9 лет',
@@ -62,6 +61,7 @@ export const questions = [
   },
   {
     text: 'Твое любимое время года?',
+    cover: `${process.env.PUBLIC_URL}/covers/vremena_goda.jpg`,
     answers: [
       {
         text: 'Зима',
@@ -91,6 +91,7 @@ export const questions = [
   },
   {
     text: 'Какой мем самый смешной?',
+    cover: `${process.env.PUBLIC_URL}/covers/memy.jpg`,
     answers: [
       {
         text: 'Ждун',
@@ -120,6 +121,7 @@ export const questions = [
   },
   {
     text: 'Какое твое любимое домашнее животное',
+    cover: `${process.env.PUBLIC_URL}/covers/zhivotnye.jpg`,
     answers: [
       {
         text: 'Кошка',
@@ -207,6 +209,7 @@ export const questions = [
   },
   {
     text: 'Кто дает самые хорошие советы?',
+    cover: `${process.env.PUBLIC_URL}/covers/sovety.jpg`,
     answers: [
       {
         text: 'Начальник',
