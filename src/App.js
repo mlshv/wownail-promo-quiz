@@ -22,7 +22,7 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    import('content/nails.js' || `content/${process.env.INFERNO_APP_CONTENT}`).then(quiz =>
+    import(`content/${process.env.INFERNO_APP_CONTENT}`).then(quiz =>
       this.setState({ quiz })
     )
   }
