@@ -1,5 +1,4 @@
 import { Component } from 'inferno'
-import coverStart from 'resources/covers/start.jpg'
 import { RootContainer } from './RootContainer'
 import { Header } from './Header'
 import { Quiz } from './Quiz'
@@ -7,7 +6,13 @@ import { LeadCard } from './LeadCard'
 import { CallToActionScreen } from './CallToActionScreen'
 import { Button } from './Button'
 import { InstaIcon } from './icons'
-import { questions, results, quizName, quizDescription } from './content'
+import {
+  questions,
+  results,
+  quizCover,
+  quizName,
+  quizDescription
+} from './content-deffchonki'
 
 const stages = {
   START: 0,
@@ -47,7 +52,7 @@ export class App extends Component {
                 Начать!
               </Button>
             }
-            cover={coverStart}
+            cover={quizCover}
             title={quizName}
             text={quizDescription}
           />

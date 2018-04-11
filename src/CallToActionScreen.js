@@ -1,4 +1,3 @@
-import { Component } from 'inferno'
 import styled from 'styled-components'
 import { Base, CardWrap, SubCardWrap, SubCard } from 'layout'
 

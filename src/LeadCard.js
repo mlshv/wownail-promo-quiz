@@ -1,5 +1,6 @@
 import { Component } from 'inferno'
 import styled from 'styled-components'
+import { postEmail } from 'api'
 import { CardWrap } from 'layout'
 import { Button } from './Button'
 import dama from 'resources/dama.png'
@@ -98,6 +99,7 @@ export class LeadCard extends Component {
   handleSubmit = () => {
     if (isEmailValid(this.state.email)) {
       this.setState({ validationError: '' })
+      postEmail(this.state.email)
       this.props.onNext()
     } else {
       this.setState({ validationError: 'Введите корректный email' })
@@ -105,6 +107,8 @@ export class LeadCard extends Component {
   }
 
   handleChange = e => this.setState({ email: e.target.value })
+
+  handleKeyPress = e => e.key === 'Enter' && this.handleSubmit()
 
   render() {
     const { email, validationError } = this.state
@@ -114,7 +118,7 @@ export class LeadCard extends Component {
         <LeadCardStyled>
           <Title>Последний шаг</Title>
           <Label>Email</Label>
-          <Input onChange={this.handleChange} value={email} />
+          <Input onChange={this.handleChange} onKeyPress={this.handleKeyPress} value={email} />
           {validationError && <Error>{validationError}</Error>}
           <PrivacyNotice>
             *Нажимая на кнопку ниже, Вы даете свое согласие на обработку

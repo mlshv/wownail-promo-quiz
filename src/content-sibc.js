@@ -1,11 +1,7 @@
-import mirandaCover from 'resources/covers/miranda.jpg'
-import charlotteCover from 'resources/covers/charlotte.jpg'
-import carrieCover from 'resources/covers/carrie.jpg'
-import samanthaCover from 'resources/covers/carrie.jpg'
-
 export const quizName = 'Кто ты из сериала Секс в Большом городе?'
 export const quizDescription =
   'Пройди тест и узнай, на кого из сериал Секс в Большом Городе ты похожа больше всего.'
+export const quizCover = `${process.env.PUBLIC_URL}/covers/start-sibc.jpg`
 
 export const scores = {
   SAMANTHA: 'Саманта',
@@ -18,22 +14,22 @@ export const results = {
   [scores.SAMANTHA]: {
     text:
       'Женщина-огонь, которой чужды предрассудки. При виде тебя наверняка мужчины теряют волю, ведь такой энергии и харизмы еще поискать! А слабакам и сомневающимся здесь не место - женщина-тайфун по зубам только уверенным в себе мужчинам.',
-    cover: samanthaCover
+    cover: `${process.env.PUBLIC_URL}/covers/samantha.jpg`
   },
   [scores.MIRANDA]: {
     text:
       'Это только с виду ты примерная девочка с идеальном скроенном костюме. С манерами и образованием у тебя полный порядок, в этом никто не сомневается. Но только те, кого ты допускаешь в свой ближайший круг, знают, как ты бестия! Огонь, горящий внутри тебя, способен разжечь любого мужчину. А то, что увидят это только самые проницательные и мудрые - не беда, другие-то тебе и не нужны.',
-    cover: mirandaCover
+    cover: `${process.env.PUBLIC_URL}/covers/miranda.jpg`
   },
   [scores.CARRIE]: {
     text:
       'Модная, яркая, толерантная, многогранная - женщина, которой под силу заставить дрогнуть даже сердце закоренелого ловеласа или холостяка. Ты берёшь шармом и интеллектом, хотя могли бы делать ставку на внешнюю привлекательность. Еще бы - таким чутьем на модное и актуальное мало кто обладает.',
-    cover: carrieCover
+    cover: `${process.env.PUBLIC_URL}/covers/carrie.jpg`
   },
   [scores.CHARLOTTE]: {
     text:
       'А между тем, подобное изящество и женственность свойственны тебе не меньше, чем любимой героине "Секса в большом городе". Уж тебе-то не знать, что большинство мужчин предпочитают очаровательных романтичных барышень? Конечно, не все они догадываются об остроте твоего ума. И не надо - пусть наивно полагают, что ты - редкий красивый цветок, с которым нужно обращаться трепетно и нежно.',
-    cover: charlotteCover
+    cover: `${process.env.PUBLIC_URL}/covers/charlotte.jpg`
   }
 }
 
