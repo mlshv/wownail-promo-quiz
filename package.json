@@ -17,6 +17,10 @@
     "start": "inferno-scripts start",
     "build": "inferno-scripts build",
     "test": "inferno-scripts test --env=jsdom",
-    "eject": "inferno-scripts eject"
+    "eject": "inferno-scripts eject",
+    "zip-nails": "INFERNO_APP_CONTENT='nails.js' npm run build && zip -r nails.zip build",
+    "zip-deffchonki": "INFERNO_APP_CONTENT='deffchonki.js' npm run build && zip -r deffchonki.zip build",
+    "zip-sibc": "INFERNO_APP_CONTENT='sibc.js' npm run build && zip -r sibc.zip build",
+    "zip-all": "npm run zip-nails && npm run zip-deffchonki && npm run zip-sibc"
   }
 }
