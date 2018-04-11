@@ -33,6 +33,8 @@ export const results = {
   }
 }
 
+export const formatResult = result => `Ты ${result}!`
+
 export const questions = [
   {
     text:

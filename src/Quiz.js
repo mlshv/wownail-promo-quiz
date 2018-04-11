@@ -6,7 +6,6 @@ import { Center } from './Center'
 import { XsExcept } from './responsive'
 import { AnswerSelect } from './AnswerSelect'
 
-
 const Card = styled.div`
   max-width: 575px;
   margin: 0 auto;
@@ -20,6 +19,14 @@ const Card = styled.div`
     rgba(105, 143, 153, 1) 0%,
     rgba(112, 175, 206, 1) 100%
   );
+
+  ${({ background }) =>
+    background &&
+    `
+  background-image: url(${background});
+  background-size: cover;
+  background-position: center;
+  `};
 
   @media (min-width: 575px) {
     padding: 24px 24px 48px 24px;
@@ -39,10 +46,11 @@ const PageIndicator = styled.div`
 
 const QuestionText = styled.h1`
   font-size: 18px;
-  margin: 32px 0;
+  margin: 64px 0;
   font-weight: 600;
   color: rgba(255, 255, 255, 1);
   text-align: center;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 
   @media (min-width: 575px) {
     font-size: 26px;
@@ -62,7 +70,11 @@ export class Quiz extends Component {
 
     this.setState(
       {
-        answers: [...answers.slice(0, page), score, ...answers.slice(page + 1)],
+        answers: [
+          ...answers.slice(0, page),
+          score || 'empty',
+          ...answers.slice(page + 1)
+        ],
         isSelected: true
       },
       () => console.log(this.state)
@@ -111,7 +123,7 @@ export class Quiz extends Component {
     return (
       <Base>
         <CardWrap>
-          <Card>
+          <Card background={questions[page].cover}>
             <PageIndicator>
               {page + 1}/{questions.length}
             </PageIndicator>

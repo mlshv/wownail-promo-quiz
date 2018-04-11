@@ -6,13 +6,6 @@ import { LeadCard } from './LeadCard'
 import { CallToActionScreen } from './CallToActionScreen'
 import { Button } from './Button'
 import { InstaIcon } from './icons'
-import {
-  questions,
-  results,
-  quizCover,
-  quizName,
-  quizDescription
-} from './content-deffchonki'
 
 const stages = {
   START: 0,
@@ -23,8 +16,15 @@ const stages = {
 
 export class App extends Component {
   state = {
+    quiz: {},
     stage: stages.START,
     quizResult: ''
+  }
+
+  componentDidMount() {
+    import('content/nails.js' || `content/${process.env.INFERNO_APP_CONTENT}`).then(quiz =>
+      this.setState({ quiz })
+    )
   }
 
   handleNext = () => {
@@ -39,7 +39,15 @@ export class App extends Component {
   }
 
   render() {
-    const { stage, quizResult } = this.state
+    const { stage, quizResult, quiz } = this.state
+    const {
+      questions,
+      results,
+      quizCover,
+      quizName,
+      quizDescription,
+      formatResult
+    } = quiz
 
     return (
       <RootContainer>
@@ -78,7 +86,7 @@ export class App extends Component {
               </Button>
             }
             cover={results[quizResult].cover}
-            title={`Ты ${quizResult}!`}
+            title={formatResult(quizResult)}
             text={results[quizResult].text}
           />
         )}

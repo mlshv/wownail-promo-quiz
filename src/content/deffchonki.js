@@ -14,7 +14,7 @@ export const results = {
   [scores.PALNA]: {
     text:
       'Ты прекрасно движется по карьерной лестнице, но не уверенна в самой себе. Ты трезво смотришь на вещи, придумываешь крутые бизнес-идеи и презентуешь их напрямую боссу. Объясняешь всё логически, неплохо одеваешься.',
-    cover: `${process.env.PUBLIC_URL}/covers/palna.jpg`,
+    cover: `${process.env.PUBLIC_URL}/covers/palna.jpg`
   },
   [scores.VASI]: {
     text:
@@ -32,6 +32,8 @@ export const results = {
     cover: `${process.env.PUBLIC_URL}/covers/bobilich.jpg`
   }
 }
+
+export const formatResult = result => `Ты ${result}!`
 
 export const questions = [
   {
