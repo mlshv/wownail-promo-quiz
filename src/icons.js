@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import instagram from 'resources/instagram.svg'
+import vk from 'resources/vk.svg'
 
 const Icon = styled.img`
     height: 18px;
@@ -7,3 +8,5 @@ const Icon = styled.img`
 `
 
 export const InstaIcon = () => <Icon src={instagram} />
+
+export const VkIcon = () => <Icon src={vk} />

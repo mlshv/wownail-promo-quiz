@@ -6,6 +6,7 @@ export const ButtonStyled = styled.button`
   padding: 10px 24px;
   font-weight: 600;
   font-family: inherit;
+  font-size: 13px;
   cursor: pointer;
   outline: none;
   text-decoration: none;
@@ -35,6 +36,16 @@ export const ButtonStyled = styled.button`
   }
   `};
 
+  ${({ disabled }) =>
+    disabled &&
+    `
+    cursor: unset;
+    background-color: rgba(169, 169, 169, 1);
+    &:hover {
+      box-shadow: unset;
+    }
+  `};
+
   ${({ hasIcon }) =>
     hasIcon &&
     `
@@ -54,13 +65,13 @@ export const ButtonStyled = styled.button`
 
 const Link = ButtonStyled.withComponent('a')
 
-export const Button = ({ children, icon, link, ...rest }) =>
+export const Button = ({ children, icon, link, width, ...rest }) =>
   link ? (
     <Link hasIcon={!!icon} {...rest}>
       {icon && icon} {children}
     </Link>
   ) : (
-    <ButtonStyled hasIcon={!!icon} {...rest}>
+    <ButtonStyled hasIcon={!!icon} width={width} {...rest}>
       {icon && icon} {children}
     </ButtonStyled>
   )

@@ -2,6 +2,7 @@ import { Component } from 'inferno'
 import styled from 'styled-components'
 import { postEmail } from 'api'
 import { CardWrap } from 'layout'
+import { VkIcon, InstaIcon } from 'icons'
 import { Button } from './Button'
 import dama from 'resources/dama.png'
 
@@ -92,39 +93,34 @@ const isEmailValid = email => {
 
 export class LeadCard extends Component {
   state = {
-    email: '',
-    validationError: ''
+    instagramClicked: false,
+    vkClicked: false,
   }
 
-  handleSubmit = () => {
-    if (isEmailValid(this.state.email)) {
-      this.setState({ validationError: '' })
-      postEmail(this.state.email)
-      this.props.onNext()
-    } else {
-      this.setState({ validationError: 'Введите корректный email' })
-    }
-  }
+  handleVkClicked = () => this.setState({ vkClicked: true })
 
-  handleChange = e => this.setState({ email: e.target.value })
-
-  handleKeyPress = e => e.key === 'Enter' && this.handleSubmit()
+  handleInstagramClicked = () => this.setState({ instagramClicked: true })
 
   render() {
-    const { email, validationError } = this.state
+    const { instagramClicked, vkClicked } = this.state
 
     return (
       <CardWrap>
         <LeadCardStyled>
           <Title>Последний шаг</Title>
-          <Label>Email</Label>
-          <Input onChange={this.handleChange} onKeyPress={this.handleKeyPress} value={email} />
-          {validationError && <Error>{validationError}</Error>}
-          <PrivacyNotice>
-            *Нажимая на кнопку ниже, Вы даете свое согласие на обработку
-            персональных данных
-          </PrivacyNotice>
-          <Button primary onClick={this.handleSubmit}>
+          <Label>Подпишись на нас в соц. сетях, <br /> чтобы узнать результат</Label>
+          <p>
+            <Button primary disabled={vkClicked} icon={<VkIcon />} link href="https://vk.com/wownailcom" target="_blank" onClick={this.handleVkClicked}>
+              Подписаться
+            </Button>
+          </p>
+          <p>
+            <Button primary disabled={instagramClicked} icon={<InstaIcon />} link href="https://instagram.com/wownailcom" target="_blank" onClick={this.handleInstagramClicked}>
+              Подписаться
+            </Button>
+          </p>
+
+          <Button primary disabled={!(vkClicked && instagramClicked)} onClick={this.props.onNext} width={155}>
             Результат
           </Button>
           <Cover src={dama} />
